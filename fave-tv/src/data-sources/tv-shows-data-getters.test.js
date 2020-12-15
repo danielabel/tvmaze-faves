@@ -1,5 +1,5 @@
-const nock = require('nock');
-const shows = require('../../data-sources/tv-shows-data-getters');
+import nock from 'nock';
+import * as shows from './tv-shows-data-getters';
 
 
 describe('Show search', () => {
