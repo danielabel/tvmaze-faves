@@ -41,7 +41,10 @@ near the files under test. I prefer a sibling `test` folder, but I've gone with 
 build in standard here.
 
 #### React choices
-I've kept what's been built as simple as it needs to be. Its getting to the point of complextity that it might read better  
+I've kept what's been built as simple as it needs to be. 
+It's getting to the point of complexity that it might read better with a 
+[reducer](https://www.smashingmagazine.com/2020/07/custom-react-hook-fetch-cache-data/)
+or with some use of custom hooks.   
 
 #### Test coverage
 For something valuable and under change, I'd want more test coverage.

@@ -5,6 +5,13 @@ describe('Show search', () => {
     favourites.save(10101);
     expect(favourites.has(10101)).toBe(true);
     expect(favourites.has(10102)).toBe(false);
-
   })
+
+  it('unsaves a favourite id to local storeage',  async () => {
+    favourites.save(10101);
+    expect(favourites.has(10101)).toBe(true);
+    favourites.unsave(10101);
+    expect(favourites.has(10101)).toBe(false);
+  })
+
 });

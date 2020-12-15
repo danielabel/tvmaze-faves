@@ -7,6 +7,7 @@ import { ShowDetails } from "./show-details.js";
 
 import showsData from "../shows-search-data.json";
 import {getShows, getShowDetails} from '../data-sources/tv-shows-data-getters';
+import * as favourites from '../data-store/favourites-store';
 
 export default function FindTVShows() {
   const [shows, setShows] = useState([]);
@@ -18,13 +19,7 @@ export default function FindTVShows() {
     setShowDetails(null);
   }
 
-  function selectTrigger(id) {
-    console.log('showing show', id);
-    setShowDetails({id});
-  }
-
   async function doSearch (searchString) {
-    console.log('searchin', searchString)
     try {
       const showsResult = await getShows(searchString);
       setShows(showsResult);
@@ -35,7 +30,6 @@ export default function FindTVShows() {
   }
 
   async function retrieveShowDetails (showId) {
-    console.log('getting show details', showId)
     try {
       const details = await getShowDetails(showId);
       setShowDetails(details);
@@ -51,7 +45,12 @@ export default function FindTVShows() {
   }
 
   if (showDetails) {
-    return (<ShowDetails show={showDetails} close={showSearch} />)
+    return (<ShowDetails show={showDetails}
+                         close={showSearch}
+                         isFavourite={favourites.has}
+                         setFavourite={favourites.save}
+                         removeFavourite={favourites.unsave}
+    />)
   }
 
   return (
