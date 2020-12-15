@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Dan Abel's **fave-Tv** web app 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Technologies used
+ - https://github.com/facebook/create-react-app
+ - https://reactjs.org/docs/hooks-intro.html
+ - https://react-bootstrap.github.io/
+ - https://github.com/nock/nock 
 
-## Available Scripts
+## How to run the app
 
-In the project directory, you can run:
+This project was generated with [Create React App](https://github.com/facebook/create-react-app).
+I'm not totally a fan, but its a standard and I've left most patterns and tech in place, for easy of use and context. 
 
-### `npm start`
+ `npm start` Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser if if doesn't open it for you.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`npm test` launches the test runner in the interactive watch mode. 
+It's a little slow.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+There is a `npm run build` command from Create React App but I've not used it.
 
-### `npm test`
+## Narration 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What's do we have
+Avoided React classes in favour of functions and used a smattering of 
+Aimed for Props rather than state
+Kept it simple, and avoiding more advanced tooling and options that would suit 
+a bigger app
 
-### `npm run build`
+#### design
+- I've debated whether to use Nock or not. I like to not rely other services
+  or networking in unit tests, however it does create a gap in the tested expectations 
+  that rely on testing the app in integration. In a real app, I might consider some 
+  Joi validation in the app and/or some CDC tests 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### What's not ideal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Test locations
+Create-React-App and jest seem to want to focus tests in to the `src` directory and
+near the files under test. I prefer a sibling `test` folder, but I've gone with the
+build in standard here.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### React choices
+I've kept what's been built as simple as it needs to be. Its getting to the point of complextity that it might read better  
 
-### `npm run eject`
+#### Test coverage
+For something valuable and under change, I'd want more test coverage.
+ - more of: I've written the components to use props so the behavoir can be tested via independent lightweight tests
+- missing : ideally some sort of shakedown or smoke test of the app would be ideal 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### What's not been done
+ - I've relied on bootstrap for all styling and defaulted to what's easily available in react-bootstrap
+ - There's no use of routing (react-router etc ) to change the URL to reflect the state in the URL 
+ - the data from the api is not always consistent 
