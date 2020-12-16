@@ -1,9 +1,15 @@
 
 async function searchResultTransform(rawJsonArray) {
   return rawJsonArray.map((item) => {
-    if (item.show?.summary) item.show.summary = item.show.summary.replace(/<[^>]+>/g, ' ');
+    if (item.show?.summary) item.show.summary = item.show.summary?.replace(/<[^>]+>/g, ' ');
     return item;
   });
+}
+
+async function showTransform(rawShowJson) {
+  let trans = Object.assign({}, rawShowJson);
+  if (rawShowJson.summary) trans.summary = rawShowJson.summary.replace(/<[^>]+>/g, ' ');
+  return trans;
 }
 
 async function fetcher(url) {
@@ -27,7 +33,7 @@ async function getShows (searchTerm) {
 
 async function getShowDetails (showId) {
   const response = await fetcher(`https://api.tvmaze.com/shows/${showId}?embed[]=seasons&embed[]=cast`);
-  return await response.json();
+  return showTransform(await response.json());
 }
 
 export {

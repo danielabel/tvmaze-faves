@@ -2,7 +2,7 @@ import nock from 'nock';
 import {jest} from '@jest/globals';
 import * as shows from './tv-shows-data-getters';
 
-// thesee tests are noisy
+// these tests are noisy
 beforeEach(() => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 });
@@ -76,9 +76,16 @@ describe('Show details', () => {
 
   it('given an id, gets show data json',  async () => {
     showNock()
-      .reply(200, [{hello: 101}]);
+      .reply(200, {hello: 101});
 
-    expect(await shows.getShowDetails(101)).toEqual([{hello: 101}]);
+    expect(await shows.getShowDetails(101)).toEqual({hello: 101});
+  });
+
+  it('removes HTML from show.summary ',  async () => {
+    showNock()
+      .reply(200, {summary: '<p><p>'});
+
+    expect(await shows.getShowDetails(101)).toEqual({summary: '  '});
   });
 
   describe('Error cases', () => {
