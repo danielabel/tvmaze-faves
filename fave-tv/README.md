@@ -22,9 +22,9 @@ There is a `npm run build` command from Create React App but I've not used it.
 ## Narration 
 
 ### What's do we have
-Avoided React classes in favour of functions and used a smattering of 
-Aimed for Props rather than state
-Kept it simple, and avoiding more advanced tooling and options that would suit 
+Avoided React classes in favour of functions and 
+aimed for Props rather than state where ever possible.
+I've kept it simple, and avoiding more advanced tooling and options that would suit 
 a bigger app
 
 #### design
