@@ -1,10 +1,17 @@
 
+async function transform(rawJsonArray) {
+  return rawJsonArray.map((item) => {
+    if (item.show?.summary) item.show.summary = item.show.summary.replace(/<[^>]+>/g, ' ');
+    return item;
+  });
+}
+
 async function getShows (searchTerm) {
   let response = await fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`);
   if (response.status !== 200) {
     throw new Error('no data');
   }
-  return response.json();
+  return transform(await response.json());
 }
 
 async function getShowDetails (showId) {

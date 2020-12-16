@@ -87,7 +87,7 @@ export function ShowDetails ({show, close, isFavourite, setFavourite, removeFavo
         </Jumbotron></Col>
       </Row>
       <Row>
-        <Col>{show.summary.replace(/<[^>]+>/g, '')}</Col>
+        <Col>{show.summary}</Col>
       </Row>
       <Row>
         <h2>Cast</h2>
