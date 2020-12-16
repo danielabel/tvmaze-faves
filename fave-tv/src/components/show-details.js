@@ -64,9 +64,10 @@ function Seasons({seasonList}) {
 }
 
 export function ShowDetails ({show, close, isFavourite, setFavourite, removeFavourite})  {
-  // state is local and allows good rendering - useEffect does the stateful magic
+  // state is local and supports good rendering - useEffect does the stateful magic
   const [favorite, setFavouriteState] = useState(() => isFavourite(show.id));
 
+  // here is were we set the persistent state
   useEffect(() => {
     if (favorite) setFavourite(show.id);
     else removeFavourite(show.id)

@@ -24,7 +24,7 @@ export default function FindTVShows() {
       const showsResult = await getShows(searchString);
       setShows(showsResult);
     } catch(e) {
-      console.log('failed to seatch for shows', e.message);
+      console.log('failed to search for shows', e.message);
       setErredSearch(e.message);
     }
   }
