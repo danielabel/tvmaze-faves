@@ -12,7 +12,7 @@ export function ShowsTable ({shows, selectTrigger})  {
   const rows = shows.map((show) => (
     <ShowCard
       show={show}
-      key={show.show.id}
+      key={show?.show.id}
       selectTrigger={selectTrigger}/>
     ));
 

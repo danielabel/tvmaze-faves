@@ -1,5 +1,15 @@
 import nock from 'nock';
+import {jest} from '@jest/globals';
 import * as shows from './tv-shows-data-getters';
+
+// thesee tests are noisy
+beforeEach(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
+afterEach(() => {
+  jest.resetAllMocks();
+});
 
 
 describe('Show search', () => {
@@ -39,6 +49,7 @@ describe('Show search', () => {
         .rejects
         .toThrow('failed to get data');
     });
+
 
     it('deals with network error cases',  async () => {
       searchNock()
@@ -80,13 +91,16 @@ describe('Show details', () => {
         .toThrow('failed to get data');
     });
 
+    // this test is noisy
     it('deals with network error cases',  async () => {
+
       showNock()
         .replyWithError('something awful happened')
 
       await expect(shows.getShowDetails(101))
         .rejects
         .toThrow('failed to get data');
+
     });
   });
 });

@@ -9,9 +9,9 @@ export default function ShowCard ({show: showWrapper, selectTrigger}) {
       <Card style={{ width: '18rem' }}  className="mx-auto my-2">
         <Card.Img variant="top" src={show?.image?.medium} />
         <Card.Body>
-          <Card.Title>{show.name}</Card.Title>
+          <Card.Title>{show?.name}</Card.Title>
           <Card.Text>
-            {show.genres.toString()}
+            {show?.genres.toString()}
           </Card.Text>
           <Button variant="primary" onClick={ () => selectTrigger(show.id) }>See Details</Button>
         </Card.Body>

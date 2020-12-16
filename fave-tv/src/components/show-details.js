@@ -11,9 +11,9 @@ import Card from "react-bootstrap/Card";
 function CastCard ({castMember}) {
   return (
     <Card style={{ width: '10rem' }} className="mx-auto my-2">
-      <Card.Img variant="top" src={castMember.person?.image?.medium} />
+      <Card.Img variant="top" src={castMember?.person?.image?.medium} />
       <Card.Body>
-        <Card.Title>{castMember.person.name}</Card.Title>
+        <Card.Title>{castMember?.person?.name}</Card.Title>
       </Card.Body>
     </Card>
   );
@@ -39,7 +39,7 @@ function SeasonCard ({season}) {
     <Card style={{ width: '10rem' }} className="mx-auto my-2">
        <Card.Img variant="top" src={season?.image?.medium} />
        <Card.Body>
-         <Card.Title>{season.name? season.name : season.number}</Card.Title>
+         <Card.Title>{season?.name? season?.name : season?.number}</Card.Title>
        </Card.Body>
      </Card>
   );
@@ -78,7 +78,7 @@ export function ShowDetails ({show, close, isFavourite, setFavourite, removeFavo
     <Container>
       <Row>
         <Col sm={4}><Image src={show?.image?.medium} fluid /></Col>
-        <Col sm={8}><Jumbotron fluid><h1>{show.name}</h1>
+        <Col sm={8}><Jumbotron fluid><h1>{show?.name}</h1>
           <p>
             {favorite
               ? <Button variant="success" onClick={() => setFavouriteState(false)}>❤️</Button>
@@ -88,7 +88,7 @@ export function ShowDetails ({show, close, isFavourite, setFavourite, removeFavo
         </Jumbotron></Col>
       </Row>
       <Row>
-        <Col>{show.summary}</Col>
+        <Col>{show?.summary}</Col>
       </Row>
       <Row>
         <h2>Cast</h2>

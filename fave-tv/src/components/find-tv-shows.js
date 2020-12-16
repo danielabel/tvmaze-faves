@@ -5,7 +5,6 @@ import SearchBar from "./search.js";
 import { ShowsTable } from "./shows-table.js";
 import { ShowDetails } from "./show-details.js";
 
-import showsData from "../shows-search-data.json";
 import {getShows, getShowDetails} from '../data-sources/tv-shows-data-getters';
 import * as favourites from '../data-store/favourites-store';
 
