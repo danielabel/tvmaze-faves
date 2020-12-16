@@ -10,7 +10,7 @@ import Card from "react-bootstrap/Card";
 
 function CastCard ({castMember}) {
   return (
-    <Card style={{ width: '10rem' }} className="mx-auto my-2">
+    <Card style={{ width: '10rem' }} className="mx-auto my-2"  key={castMember?.person?.id}>
       <Card.Img variant="top" src={castMember?.person?.image?.medium} />
       <Card.Body>
         <Card.Title>{castMember?.person?.name}</Card.Title>
@@ -36,7 +36,7 @@ function Cast({castlist}) {
 }
 function SeasonCard ({season}) {
   return (
-    <Card style={{ width: '10rem' }} className="mx-auto my-2">
+    <Card style={{ width: '10rem' }} className="mx-auto my-2" key={season.id}>
        <Card.Img variant="top" src={season?.image?.medium} />
        <Card.Body>
          <Card.Title>{season?.name? season?.name : season?.number}</Card.Title>
