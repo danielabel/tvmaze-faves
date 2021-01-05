@@ -8,17 +8,12 @@ function SearchBar (props) {
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearchInputChanges(event) {
-
-    console.log('handleSearchInputChanges', event.target.value);
     setSearchValue(event.target.value)
   }
 
   function handleKeyPress(event) {
-    console.log('handleKeyPress', event.charCode);
-    console.log('handleKeyPress', event.key);
     if (event.charCode === 13)
     {
-      console.log('handleKeyPress', 'searchng yet');
       props.searchTrigger(searchValue);
     }
   }
