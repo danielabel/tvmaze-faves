@@ -21,8 +21,8 @@ There is a `npm run build` command from Create React App, but I've not used it.
 
 ## Narration 
 
-### What's do we have
-React isn't my usual ballpark for the last few years, so I've tried to pick a simple set of libraries to get me going.  
+### What do we have
+React hasn't been my usual ballpark for the last few years, so I've tried to pick a simple set of libraries to get me going.  
 
 I've avoided React classes in favour of functions aimed for `Props` rather than `State` where ever possible.
 I've tried to keep it simple and avoided more advanced tooling and options that would suit a bigger app.
